@@ -1,16 +1,21 @@
 package pkgCore;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
+
+import java.util.ArrayList;
 
 import org.junit.Test;
 
 public class DeckTest {
 
 	@Test
-	public void TestDeck() {
-		
-		//	TODO: Build a deck(1), make sure there are 52 cards in the deck
-		//	TODO: Build a deck(6), make sure there are 312 cards in the deck 
+	public void TestDeck() throws Exception {
+		ArrayList<Card> cards1 = new ArrayList<Card>();
+		Deck b=new Deck(cards1,1);
+		assertTrue(b.cards.size()==52);
+		ArrayList<Card> cards2 = new ArrayList<Card>();
+		Deck a=new Deck(cards2,6);
+		assertTrue(a.cards.size()==312);
 	}
 
 }

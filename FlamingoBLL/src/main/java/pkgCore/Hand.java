@@ -3,13 +3,13 @@ package pkgCore;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import pkgEnum.eRank;
+
 public class Hand {
 
 	private int iScore;
 	private ArrayList<Card> cards = new ArrayList<Card>();
-	private int a;
-	private int b;
-	private int x;
+	
 	public Hand()
 	{
 	
@@ -18,51 +18,61 @@ public class Hand {
 	
 	public int[] ScoreHand()
 	{
-		int [] iScore = new int[1];
+		int [] iScore = new int[2];
 		
-		iScore[0] = 0;
-		
+		iScore[0] =0;
+		iScore[1] =0;
 		Collections.sort(cards);
 		
-
+		boolean isAce=false;
 		for (Card c: cards)
 		{
-			a=c.geteRank().getiRankNbr();
-			if (c.geteRank().getiRankNbr()>10) {
-				a=10;
+			iScore[0]+=c.geteRank().getMin();
+			if (c.geteRank()==eRank.ACE){
+				isAce=true;
 			}
-			if (c.geteRank().getiRankNbr()==1||c.geteRank().getiRankNbr()==14)
-			{	
-				b=cards.indexOf(c);
-				x=iScore[0];
-				
-				
-				if (b==cards.size()-1&&((x+=11)<=21)) {
-					a=11;
-				}
-				else {
-					a=1;
-						
-				}
-			}
-			iScore[0]+=a;
-			//	TODO: Determine the score.  
-			//			Cards:
-			//			2-3-4 - score = 11
-			//			5-J-Q - score = 25
-			//			5-6-7-2 - score = 20
-			//			J-Q	- score = 20
-			//			8-A = score = 9 or 19
-			//			4-A = score = 5 or 15
 		}
-		
+		iScore[1]=(isAce)?iScore[0]+10:iScore[0];
+		SetHandScore(iScore);
 		return iScore;
 	}
 	
-	public void Draw(Deck d)
+	public void Draw(Deck d) throws Exception
 	{
+		
 		cards.add(d.draw());
-		//	TODO: add a card to 'cards' from a card drawn from Deck d
+	}
+	public  boolean isDealerDraw() {
+		for (int iSccore:ScoreHand()) {
+			if (iScore>=17){
+			return false;
+			}
+		}
+		return true;
+	}
+	public  boolean isPlayerDraw() {
+		for (int iSccore:ScoreHand()) {
+			if (iScore<21){
+			return true;
+			}
+		}
+		return false;
+	}
+	
+	public boolean isBlackJack() {
+		int[] iScores=ScoreHand();
+		if ((iScores[1]==21)&&(cards.size()==2)) {
+			return true;
+			
+		}
+		return false;
+	}
+	
+	public void SetHandScore(int[] Scores) {
+		this.iScore=Scores[0];
+		if (Scores[1]<=21){
+			iScore=Scores[1];
+		}
 	}
 	
 	private void AddCard(Card c)

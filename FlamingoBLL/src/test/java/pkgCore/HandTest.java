@@ -128,9 +128,9 @@ public class HandTest {
 		// TODO: Test J-A, score should be 21
 		ArrayList<Card> cards = new ArrayList<Card>();
 		cards.add(new Card(eRank.JACK,eSuit.CLUBS));
-		cards.add(new Card(eRank.ONE,eSuit.CLUBS));
+		cards.add(new Card(eRank.ACE,eSuit.CLUBS));
 		int[] score = HandHelper(cards);
-		assertEquals(score[0],21);	
+		assertEquals(score[1],21);	
 	}
 
 	@Test
@@ -138,8 +138,8 @@ public class HandTest {
 		// TODO: Test J-A-A, score should be 12
 		ArrayList<Card> cards = new ArrayList<Card>();
 		cards.add(new Card(eRank.JACK,eSuit.CLUBS));
-		cards.add(new Card(eRank.ONE,eSuit.CLUBS));
-		cards.add(new Card(eRank.ONE,eSuit.CLUBS));
+		cards.add(new Card(eRank.ACE,eSuit.CLUBS));
+		cards.add(new Card(eRank.ACE,eSuit.CLUBS));
 		int[] score = HandHelper(cards);
 		assertEquals(score[0],12);	
 	}
@@ -148,9 +148,9 @@ public class HandTest {
 	public void test6() {
 		ArrayList<Card> cards = new ArrayList<Card>();
 		cards.add(new Card(eRank.JACK,eSuit.CLUBS));
-		cards.add(new Card(eRank.ONE,eSuit.CLUBS));
-		cards.add(new Card(eRank.ONE,eSuit.CLUBS));
-		cards.add(new Card(eRank.ONE,eSuit.CLUBS));
+		cards.add(new Card(eRank.ACE,eSuit.CLUBS));
+		cards.add(new Card(eRank.ACE,eSuit.CLUBS));
+		cards.add(new Card(eRank.ACE,eSuit.CLUBS));
 		int[] score = HandHelper(cards);
 		assertEquals(score[0],13);	
 		// TODO: Test J-A-A-A, score should be 13
@@ -161,12 +161,14 @@ public class HandTest {
 		//	TODO: Test A-A-A-A-2, score should be 6 or 16
 		ArrayList<Card> cards = new ArrayList<Card>();
 		cards.add(new Card(eRank.TWO,eSuit.CLUBS));
-		cards.add(new Card(eRank.ONE,eSuit.CLUBS));
-		cards.add(new Card(eRank.ONE,eSuit.CLUBS));
-		cards.add(new Card(eRank.ONE,eSuit.CLUBS));
-		cards.add(new Card(eRank.ONE,eSuit.CLUBS));
+		cards.add(new Card(eRank.ACE,eSuit.CLUBS));
+		cards.add(new Card(eRank.ACE,eSuit.CLUBS));
+		cards.add(new Card(eRank.ACE,eSuit.CLUBS));
+		cards.add(new Card(eRank.ACE,eSuit.CLUBS));
 		int[] score = HandHelper(cards);
-		assertEquals(score[0],16);
+		assertEquals(score[0],6);
+		assertEquals(score[1],16);
+		
 	}
 
 }
