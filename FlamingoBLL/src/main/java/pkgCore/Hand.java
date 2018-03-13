@@ -16,6 +16,17 @@ public class Hand {
 		
 	}
 	
+	//QUiz 345
+	public int getRemaining(Object eNum) {
+		int b=0;
+		for (Card a:cards) {
+			if (a.geteRank()==eNum||a.geteSuit()==eNum) {
+				b++;
+			}
+		}
+		return b;
+	}
+	
 	public int[] ScoreHand()
 	{
 		int [] iScore = new int[2];
