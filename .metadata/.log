@@ -410,6 +410,7 @@ org.eclipse.recommenders.utils.Logs$LogTraceException
 	at org.eclipse.recommenders.internal.calls.rcp.RcpCallModelProvider.acquireModel(RcpCallModelProvider.java:1)
 	at org.eclipse.recommenders.internal.models.rcp.PrefetchModelArchiveJob.run(PrefetchModelArchiveJob.java:43)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+<<<<<<< HEAD
 !SESSION 2018-03-13 19:04:11.323 -----------------------------------------------
 eclipse.buildId=4.7.2.M20171130-0510
 java.version=9.0.4
@@ -490,3 +491,5 @@ java.util.concurrent.TimeoutException: Timeout after waiting 5 seconds to acquir
 	at org.eclipse.jdt.core.JavaCore.initializeAfterLoad(JavaCore.java:4310)
 	at org.eclipse.jdt.internal.ui.InitializeAfterLoadJob$RealJob.run(InitializeAfterLoadJob.java:36)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+=======
+>>>>>>> 789d900a9b4100aa65a4d99328f0515424c6cc23
