@@ -14,8 +14,26 @@ public class Hand {
 	{
 	
 		
+	}	
+	//quiz 345
+	public int getRemaining(Object eNum) {
+		int a = 0;
+		if (eNum instanceof eRank) {
+			for (Card c:cards) {
+				if (c.geteRank()==eNum) {
+					a++;
+				}
+		}
+		}
+		else {
+			for (Card c:cards) {
+				if (c.geteSuit()==eNum) {
+					a++;
+				}
+		}
+		}
+		return a;
 	}
-	
 	
 	public int[] ScoreHand()
 	{
